@@ -1,10 +1,10 @@
 import express from "express";
-import { database } from "./config/database.js";
+import { userDB } from "./config/userDB.js";
 import { userRoutes } from "./routes/userRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-database;
+userDB;
 
 app.use(express.json());
 app.use("/", userRoutes);
