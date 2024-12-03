@@ -22,3 +22,17 @@ let manaraAli = UserModel({
   "expertise": ["JavaScript", "Node", "Express", "React", "MongoDB", "Mongoose"],
   "qualification": ["Georgia Institute of Technology"]
 });
+
+let createUser = async (req, res) => {
+  try {
+    let userData = new UserModel(req.body);
+    let saveUser = await userData.save();
+    res.status(201).json(saveUser);
+  } catch(error) {
+    res.status(400).json({ "message": error.mesage });
+  }
+}
+
+// let updateUser = aync (req, res) => {
+
+// }
