@@ -42,4 +42,24 @@ let readUser = async (req, res) => {
   }
 }
 
-export { createUser, readUser };
+let updateUser = async (req, res) => {
+  try {
+    let userId = await UserModel.find(req.params);
+    console.log(userId);
+    res.status(201).json(userId);
+  } catch(error) {
+    res.status(400).json({ "message": error.mesage });
+  }
+}
+
+let deleteUser = async (req, res) => {
+  try {
+    let userId = await UserModel.find(req.params);
+    console.log(userId);
+    res.status(201).json(userId);
+  } catch(error) {
+    res.status(500).json({ "message": error.message });
+  }
+}
+
+export { createUser, readUser, updateUser, deleteUser };
