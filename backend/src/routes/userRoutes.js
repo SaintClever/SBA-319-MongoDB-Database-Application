@@ -3,9 +3,10 @@ import { createUser, readUser, updateUser, deleteUser } from "../controllers/use
 
 const router = expres.Router();
 
-router.post("/", createUser);
+router.get("/", readUser);
+router.post("/api", createUser);
 router.get("/api", readUser);
-router.put("/:_id", updateUser);
-router.delete("/:_id", deleteUser);
+router.put("/api/:_id", updateUser);
+router.delete("/api/:_id", deleteUser);
 
 export { router as userRoutes };
