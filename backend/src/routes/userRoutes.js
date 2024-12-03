@@ -1,5 +1,9 @@
 import expres from "express";
+import { createUser, readUser } from "../controllers/userController.js";
 
 const router = expres.Router();
 
-router.get("/", createUser);
+router.post("/", createUser);
+router.get("/api", readUser);
+
+export { router as userRoutes };

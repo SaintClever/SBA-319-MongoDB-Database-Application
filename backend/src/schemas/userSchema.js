@@ -7,9 +7,9 @@ const userSchema = new mongoose.Schema({
   "lastName": { "type": String, "required": true},
   "title": { "type": String, "required": true },
   "bio": { "type": String },
-  "course": { "type": String || Array },
-  "expertise": { "type": String || Array },
-  "qualification": { "type": String || Array }
+  "course": { "type": [String] },
+  "expertise": { "type": [String] },
+  "qualification": { "type": [String] }
 });
 
 export { userSchema };

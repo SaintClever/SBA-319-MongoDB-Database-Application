@@ -33,6 +33,13 @@ let createUser = async (req, res) => {
   }
 }
 
-// let updateUser = aync (req, res) => {
+let readUser = async (req, res) => {
+  try {
+    let users = await UserModel.find();
+    res.status(200).json(users);
+  } catch(error) {
+    res.status(500).json({ "message": error.message });
+  }
+}
 
-// }
+export { createUser, readUser };
