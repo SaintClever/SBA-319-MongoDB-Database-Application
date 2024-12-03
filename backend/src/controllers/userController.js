@@ -44,9 +44,8 @@ let readUser = async (req, res) => {
 
 let updateUser = async (req, res) => {
   try {
-    let userId = await UserModel.find(req.params);
-    console.log(userId);
-    res.status(201).json(userId);
+    let update = await UserModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    res.status(201).json(update);
   } catch(error) {
     res.status(400).json({ "message": error.mesage });
   }
@@ -54,9 +53,8 @@ let updateUser = async (req, res) => {
 
 let deleteUser = async (req, res) => {
   try {
-    let userId = await UserModel.find(req.params);
-    console.log(userId);
-    res.status(201).json(userId);
+    let deletedUser = await UserModel.deleteOne(req.params);
+    res.status(201).json(deletedUser);
   } catch(error) {
     res.status(500).json({ "message": error.message });
   }
